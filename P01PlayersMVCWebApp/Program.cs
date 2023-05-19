@@ -1,9 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using P01PlayersMVCWebApp.Models;
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<VolleyballDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

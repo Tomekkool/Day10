@@ -1,0 +1,7 @@
+----scaffold----
+
+dotnet ef Scaffold-DbContext -Connection name=DefaultConnectionString -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+---fixed---
+dotnet ef dbcontext scaffold "name=DefaultConnectionString" Microsoft.EntityFrameworkCore.SqlServer -o Models
